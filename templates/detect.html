@@ -11,8 +11,18 @@
           <p>Upload your csv file and click <strong>Go</strong></p>
 
           <form action="/upload/detect" enctype="multipart/form-data" method='POST'>
-            <label for="file1">select a file:</label>
-            <input type="file" id="file1" name="file1"> <br>
+            <div class="mb-3">
+              <label for="file1">Select a file to upload:</label>
+              <input type="file" id="file1" name="file1">
+            </div>
+            <div class="mb-3">
+              <label>OR Use Server File:</label><br>
+              <select name="server_file1" class="form-control" style="width: auto; display: inline-block;">
+                <option value="">-- Select Server File --</option>
+                <option value="atr.xlsx">atr.xlsx</option>
+                <option value="electricity data zone.xlsx">electricity data zone.xlsx</option>
+              </select>
+            </div>
             <input type="submit" value="Go" class="button">
           </form>
           <button type="button" onclick="generate(1);" class="button">Generate spreadsheet</button>

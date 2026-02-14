@@ -3,3 +3,5 @@ Flask
 Flask-Mail
 Flask-Session
 MarkupSafe
+pandas
+openpyxl

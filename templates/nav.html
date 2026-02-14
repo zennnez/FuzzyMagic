@@ -5,5 +5,8 @@
       <li><a {% if request.path == "/merge" %} class="active" {% endif %}href="/merge">MERGE</a></li>
       <li><a {% if request.endpoint == "generate" %} class="active" {% endif %}href="/generate">GENERATE</a></li>
       <li><a {% if request.endpoint == "about" %} class="active" {% endif %}href="/about">ABOUT</a></li>
+      {% if session.get("token") %}
+      <li style="float: right;"><a href="/logout">LOGOUT</a></li>
+      {% endif %}
     </ul>
 </nav>
