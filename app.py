@@ -136,9 +136,8 @@ def generate():
     # If not 'detect' and not 'merge'
     else: raise ValueError("must be 'detect' or 'merge'")
     # Send
-    #EITHER of these two lines should work (Flask version issues)
-    return send_from_directory(directory=directory, filename=filename, as_attachment=True)
-    #return send_from_directory(directory=directory, path=filename, as_attachment=True)
+    # Flask >= 2.3 expects 'path' instead of 'filename'
+    return send_from_directory(directory=directory, path=filename, as_attachment=True)
 
 
 
@@ -293,9 +292,8 @@ def download(directory, filename):
     # General case
     else:
         directory = os.path.join(app.root_path, app.config['DOWNLOAD_FOLDER'], directory)
-    #EITHER of these two lines should work (Flask version issues)
-    return send_from_directory(directory=directory, filename=filename)
-    #return send_from_directory(directory=directory, path=filename)
+    # Flask >= 2.3 expects 'path' instead of 'filename'
+    return send_from_directory(directory=directory, path=filename)
 
 
 
@@ -325,9 +323,8 @@ def about():
     rmtree(os.path.join(directory, packagename))
 
     # Download
-    #EITHER of these two lines should work (Flask version issues)
-    return send_from_directory(directory=directory, filename=packagename + ".zip", as_attachment=True)
-    #return send_from_directory(directory=directory, path=packagename + ".zip", as_attachment=True)
+    # Flask >= 2.3 expects 'path' instead of 'filename'
+    return send_from_directory(directory=directory, path=packagename + ".zip", as_attachment=True)
 
 
 
